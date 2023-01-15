@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <pthread.h>
+#include <stdlib.h>
+
+void main()
+{
+
+void *f1(void *arg)
+{
+printf("t1");
+}
+
+void *f2(void *arg)
+{
+printf("t2");
+}
+
+
+pthread_t t1,t2;
+pthread_create(&t1, NULL, f1,NULL);
+pthread_create(&t2, NULL, f2,NULL);
+ 
+pthread_join(t1,NULL);
+pthread_join(t2,NULL);
+ 
+printf("\n Thread finish");
+ 
+}
